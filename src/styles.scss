@@ -1,0 +1,57 @@
+@import "tailwindcss";
+@plugin "tailwindcss-primeui";
+
+html {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-size: 14px;
+  font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+* {
+  line-height: 1.2;
+}
+
+body {
+  background: var(--surface-ground);
+  color: var(--text-color);
+  padding: 1rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  margin-inline: auto;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  line-height: 1.2;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+img,
+picture {
+  max-width: 75%;
+  display: block;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}

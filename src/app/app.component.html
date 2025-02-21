@@ -1,32 +1,46 @@
 <div class="card flex justify-center">
-  <p-button label="Check" />
-  <p-button label="Submit" />
-  <p-button icon="pi pi-home" aria-label="Save" />
-  <p-button label="Link" [link]="true" />
-  <i class="pi pi-spin pi-cog" style="font-size: 2rem"></i>
-  <p-toggleswitch />
-</div>
+  <div pFocusTrap class="w-full sm:w-80 flex flex-col gap-6">
+    <p-iconfield>
+      <p-inputicon>
+        <i class="pi pi-user"></i>
+      </p-inputicon>
+      <input
+        type="text"
+        pInputText
+        id="input"
+        [(ngModel)]="name"
+        type="text"
+        placeholder="Name"
+        [pAutoFocus]="true"
+        [fluid]="true"
+      />
+    </p-iconfield>
 
-<div class="card flex justify-center">
-  <div class="flex flex-wrap gap-4">
-      <div class="flex items-center">
-          <p-radiobutton name="pizza" value="Cheese" [(ngModel)]="ingredient" inputId="ingredient1" />
-          <label for="ingredient1" class="ml-2">Cheese</label>
-      </div>
+    <p-iconfield>
+      <p-inputicon>
+        <i class="pi pi-envelope"> </i>
+      </p-inputicon>
+      <input
+        type="text"
+        pInputText
+        id="email"
+        [(ngModel)]="email"
+        type="email"
+        placeholder="Email"
+        [fluid]="true"
+      />
+    </p-iconfield>
 
-      <div class="flex items-center">
-          <p-radiobutton name="pizza" value="Mushroom" [(ngModel)]="ingredient" inputId="ingredient2" />
-          <label for="ingredient2" class="ml-2">Mushroom</label>
-      </div>
+    <div class="flex items-center gap-2">
+      <p-checkbox
+        id="accept"
+        [(ngModel)]="accept"
+        name="accept"
+        value="Accept"
+      />
+      <label for="accept">I agree to the terms and conditions.</label>
+    </div>
 
-      <div class="flex items-center">
-          <p-radiobutton name="pizza" value="Pepper" [(ngModel)]="ingredient" inputId="ingredient3" />
-          <label for="ingredient3" class="ml-2">Pepper</label>
-      </div>
-
-      <div class="flex items-center">
-          <p-radiobutton name="pizza" value="Onion" [(ngModel)]="ingredient" inputId="ingredient4" />
-          <label for="ingredient4" class="ml-2">Onion</label>
-      </div>
+    <p-button type="submit" label="Submit" class="mt-2" styleClass="w-full" />
   </div>
 </div>
