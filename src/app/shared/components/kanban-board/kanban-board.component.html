@@ -1,0 +1,111 @@
+<div class="container mx-auto p-4">
+  <div class="flex flex-col md:flex-row gap-4">
+    <!-- Ready Kolonu -->
+    <div class="flex-1 bg-gray-100 rounded p-2"
+         cdkDropList 
+         #readyList="cdkDropList"
+         [cdkDropListData]="ready"
+         [cdkDropListConnectedTo]="[stoppedList, activeList, doneList]"
+         (cdkDropListDropped)="drop($event, 'Ready')">
+      <h2 class="text-xl font-bold mb-4 text-center">Ready</h2>
+      <div class="space-y-4">
+        <div *ngFor="let task of ready" cdkDrag>
+          <div class="bg-white rounded shadow p-4">
+            <div class="flex justify-between items-center mb-2">
+              <span class="font-semibold">{{ task.name }}</span>
+              <span class="text-sm text-gray-500">{{ task.assignedUser }}</span>
+            </div>
+            <p class="mb-2">{{ task.description }}</p>
+            <div class="flex flex-wrap gap-1">
+              <span *ngFor="let tag of task.tags" class="bg-blue-200 text-blue-800 px-2 py-1 rounded text-xs">
+                {{ tag }}
+              </span>
+            </div>
+            <p class="text-xs mt-2 text-gray-600">State: {{ task.state }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stopped Kolonu -->
+    <div class="flex-1 bg-gray-100 rounded p-2"
+         cdkDropList 
+         #stoppedList="cdkDropList"
+         [cdkDropListData]="stopped"
+         [cdkDropListConnectedTo]="[readyList, activeList, doneList]"
+         (cdkDropListDropped)="drop($event, 'Stopped')">
+      <h2 class="text-xl font-bold mb-4 text-center">Stopped</h2>
+      <div class="space-y-4">
+        <div *ngFor="let task of stopped" cdkDrag>
+          <div class="bg-white rounded shadow p-4">
+            <div class="flex justify-between items-center mb-2">
+              <span class="font-semibold">{{ task.name }}</span>
+              <span class="text-sm text-gray-500">{{ task.assignedUser }}</span>
+            </div>
+            <p class="mb-2">{{ task.description }}</p>
+            <div class="flex flex-wrap gap-1">
+              <span *ngFor="let tag of task.tags" class="bg-blue-200 text-blue-800 px-2 py-1 rounded text-xs">
+                {{ tag }}
+              </span>
+            </div>
+            <p class="text-xs mt-2 text-gray-600">State: {{ task.state }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Active Kolonu -->
+    <div class="flex-1 bg-gray-100 rounded p-2"
+         cdkDropList 
+         #activeList="cdkDropList"
+         [cdkDropListData]="active"
+         [cdkDropListConnectedTo]="[readyList, stoppedList, doneList]"
+         (cdkDropListDropped)="drop($event, 'Active')">
+      <h2 class="text-xl font-bold mb-4 text-center">Active</h2>
+      <div class="space-y-4">
+        <div *ngFor="let task of active" cdkDrag>
+          <div class="bg-white rounded shadow p-4">
+            <div class="flex justify-between items-center mb-2">
+              <span class="font-semibold">{{ task.name }}</span>
+              <span class="text-sm text-gray-500">{{ task.assignedUser }}</span>
+            </div>
+            <p class="mb-2">{{ task.description }}</p>
+            <div class="flex flex-wrap gap-1">
+              <span *ngFor="let tag of task.tags" class="bg-blue-200 text-blue-800 px-2 py-1 rounded text-xs">
+                {{ tag }}
+              </span>
+            </div>
+            <p class="text-xs mt-2 text-gray-600">State: {{ task.state }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Done Kolonu -->
+    <div class="flex-1 bg-gray-100 rounded p-2"
+         cdkDropList 
+         #doneList="cdkDropList"
+         [cdkDropListData]="done"
+         [cdkDropListConnectedTo]="[readyList, stoppedList, activeList]"
+         (cdkDropListDropped)="drop($event, 'Done')">
+      <h2 class="text-xl font-bold mb-4 text-center">Done</h2>
+      <div class="space-y-4">
+        <div *ngFor="let task of done" cdkDrag>
+          <div class="bg-white rounded shadow p-4">
+            <div class="flex justify-between items-center mb-2">
+              <span class="font-semibold">{{ task.name }}</span>
+              <span class="text-sm text-gray-500">{{ task.assignedUser }}</span>
+            </div>
+            <p class="mb-2">{{ task.description }}</p>
+            <div class="flex flex-wrap gap-1">
+              <span *ngFor="let tag of task.tags" class="bg-blue-200 text-blue-800 px-2 py-1 rounded text-xs">
+                {{ tag }}
+              </span>
+            </div>
+            <p class="text-xs mt-2 text-gray-600">State: {{ task.state }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
